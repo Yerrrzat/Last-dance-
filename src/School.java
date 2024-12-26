@@ -7,6 +7,14 @@ public class School {
         this.members = new ArrayList<>();
     }
 
+    public ArrayList<Person> getMembers() {
+        return members;
+    }
+
+    public void setMembers(ArrayList<Person> members) {
+        this.members = members;
+    }
+
     public void addMember(Person person) {
         members.add(person);
     }

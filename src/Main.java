@@ -8,41 +8,41 @@ public class Main {
         ArrayList<Teacher> teachers = new ArrayList<>();
         School school = new School();
 
-        File studentFile = new File("C:\\Users\\Админ\\IdeaProjects\\Intro\\src\\students.txt");
+        File studentFile = new File("C:\\Users\\Админ\\IdeaProjects\\Frrrrrrrrr\\src\\students.txt");
         Scanner studentScanner = new Scanner(studentFile);
 
         while (studentScanner.hasNextLine()) {
             Student student = new Student();
-            String name = studentScanner.next();
-            String surname = studentScanner.next();
-            int age = Integer.parseInt(studentScanner.next());
-            boolean gender = studentScanner.next().equalsIgnoreCase("Male");
+            studentScanner.next();
+            student.setName(studentScanner.next());
+            student.setSurname(studentScanner.next());
+            student.setAge(Integer.parseInt(studentScanner.next()));
+            student.setGender(Boolean.parseBoolean(studentScanner.next()));
 
-            while (studentScanner.hasNextLine()) {
-                student.setName(name);
-                student.setSurname(surname);
-                student.setAge(age);
-                student.setGender(gender);
-                students.add(student);
-                school.addMember(student);
+            while (studentScanner.hasNextInt()) {
+                student.addGrade(studentScanner.nextInt());
             }
+            school.addMember(student);
         }
 
 
-        File teacherFile = new File("C:\\Users\\Админ\\IdeaProjects\\Intro\\src\\teachers.txt");
+        File teacherFile = new File("C:\\Users\\Админ\\IdeaProjects\\Frrrrrrrrr\\src\\teachers.txt");
         Scanner teacherScanner = new Scanner(teacherFile);
 
         while (teacherScanner.hasNextLine()) {
             Teacher teacher = new Teacher();
+            teacherScanner.next();
             teacher.setName(teacherScanner.next());
             teacher.setSurname(teacherScanner.next());
             teacher.setAge(Integer.parseInt(teacherScanner.next()));
-            teacher.setGender(teacherScanner.next().equalsIgnoreCase("Male"));
+            teacher.setGender(Boolean.parseBoolean(teacherScanner.next()));
             teacher.setSubject(teacherScanner.next());
             teacher.setYearsOfExperience(Integer.parseInt(teacherScanner.next()));
             teacher.setSalary(Integer.parseInt(teacherScanner.next()));
 
-            teachers.add(teacher);
+            if (teacher.getYearsOfExperience() > 10) {
+                teacher.giveRaise(10);
+            }
             school.addMember(teacher);
         }
 
@@ -50,5 +50,16 @@ public class Main {
 
 
         school.printMembers();
+
+        for (Person member : school.getMembers()) {
+            if (member instanceof Student) {
+                Student student = (Student) member;
+                System.out.println("GPA of " + student + " is: " + student.calculateGPA());
+            } else if (member instanceof Teacher) {
+                Teacher teacher = (Teacher) member;
+                System.out.println(teacher + " has a salary of: " + teacher.getSalary());
+            }
+        }
+
     }
 }

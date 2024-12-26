@@ -38,6 +38,10 @@ public class Teacher extends Person{
         this.salary = salary;
     }
 
+    public void giveRaise(double percentage) {
+        salary += salary * percentage / 100;
+    }
+
     @Override
     public String toString() {
         return super.toString() + " I teach " + subject;

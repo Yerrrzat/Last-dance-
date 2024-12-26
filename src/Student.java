@@ -26,8 +26,12 @@ class Student extends Person{
         grades.add(grade);
     }
 
-    public void calculateGpa(){
-
+    public double calculateGPA() {
+        int sum = 0;
+        for (int grade : grades) {
+            sum += grade;
+        }
+        return grades.isEmpty() ? 0 : (double) sum / grades.size();
     }
 
 
