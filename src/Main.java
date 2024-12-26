@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -22,6 +23,7 @@ public class Main {
             while (studentScanner.hasNextInt()) {
                 student.addGrade(studentScanner.nextInt());
             }
+            students.add(student);
             school.addMember(student);
         }
 
@@ -43,23 +45,13 @@ public class Main {
             if (teacher.getYearsOfExperience() > 10) {
                 teacher.giveRaise(10);
             }
+            teachers.add(teacher);
             school.addMember(teacher);
         }
-
         teacherScanner.close();
 
 
         school.printMembers();
-
-        for (Person member : school.getMembers()) {
-            if (member instanceof Student) {
-                Student student = (Student) member;
-                System.out.println("GPA of " + student + " is: " + student.calculateGPA());
-            } else if (member instanceof Teacher) {
-                Teacher teacher = (Teacher) member;
-                System.out.println(teacher + " has a salary of: " + teacher.getSalary());
-            }
-        }
 
     }
 }
