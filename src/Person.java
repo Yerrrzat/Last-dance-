@@ -2,13 +2,13 @@ class Person {
     private String name;
     private String surname;
     private int age;
-    private boolean gender; // true = Male, false = Female
+    private String gender;
 
     public Person() {
 
     }
 
-    public Person(String name, String surname, int age, boolean gender) {
+    public Person(String name, String surname, int age, String gender) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -39,16 +39,15 @@ class Person {
         this.age = age;
     }
 
-    public boolean isGender() {
+    public String isGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
     public String toString() {
-        String genderStr = gender ? "Male" : "Female";
-        return "Hi, I am " + name + " " + surname + ", a " + age + "-year-old " + genderStr + ".";
+        return "Hi, I am " + name + " " + surname + ", a " + age + "-year-old " + gender + ".";
     }
 }

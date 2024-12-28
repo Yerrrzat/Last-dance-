@@ -5,10 +5,15 @@ class Student extends Person{
     private static int id;
     private ArrayList<Integer> grades;
 
-    public Student(String name, String surname, int age, boolean gender) {
+    public Student(){
+        this.grades= new ArrayList<>();
+        this.StudentID=id++;
+    }
+
+    public Student(String name, String surname, int age, String gender) {
         super( name, surname, age, gender);
         this.StudentID=StudentID;
-        this.StudentID=id++;
+
     }
 
 
@@ -29,6 +34,6 @@ class Student extends Person{
 
     @Override
     public String toString() {
-        return super.toString() + " My GPA is " + ".";
+        return super.toString() + "I am a student with ID" + StudentID + " my gpa is " + calculateGPA();
     }
 }
