@@ -4,10 +4,6 @@ public class Teacher extends Person{
     private int yearsOfExperience;
     private int salary;
 
-    public Teacher() {
-        super();
-    }
-
     public Teacher(String name, String surname, int age, boolean gender, String subject, int yearsOfExperience, int salary) {
         super(name, surname, age, gender);
         this.subject = subject;
