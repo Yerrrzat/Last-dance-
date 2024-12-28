@@ -39,7 +39,7 @@ class Person {
         this.age = age;
     }
 
-    public String isGender() {
+    public String getGender() {
         return gender;
     }
 

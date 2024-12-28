@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 class Student extends Person{
     private int StudentID;
-    private static int id;
+    private static int id=1;
     private ArrayList<Integer> grades;
 
     public Student(){
@@ -13,7 +13,6 @@ class Student extends Person{
     public Student(String name, String surname, int age, String gender) {
         super( name, surname, age, gender);
         this.StudentID=StudentID;
-
     }
 
 
