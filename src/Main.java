@@ -1,12 +1,9 @@
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        ArrayList<Student> students = new ArrayList<>();
-        ArrayList<Teacher> teachers = new ArrayList<>();
+    public static void main(String[] args) throws FileNotFoundException {
         School school = new School();
 
         File studentFile = new File("C:\\Users\\Админ\\IdeaProjects\\Frrrrrrrrr\\src\\students.txt");
@@ -23,7 +20,6 @@ public class Main {
             while (studentScanner.hasNextInt()) {
                 student.addGrade(studentScanner.nextInt());
             }
-            students.add(student);
             school.addMember(student);
         }
 
@@ -45,12 +41,8 @@ public class Main {
             if (teacher.getYearsOfExperience() > 10) {
                 teacher.giveRaise(10);
             }
-            teachers.add(teacher);
             school.addMember(teacher);
         }
-        teacherScanner.close();
-
-
         school.printMembers();
 
     }
