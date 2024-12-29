@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         School school = new School();
 
-        File studentFile = new File("src\\students.txt");
+        File studentFile = new File("src/students.txt");
         Scanner studentScanner = new Scanner(studentFile);
 
         while (studentScanner.hasNextLine()) {
@@ -30,7 +30,7 @@ public class Main {
         }
 
 
-        File teacherFile = new File("src\\teachers.txt");
+        File teacherFile = new File("src/teachers.txt");
         Scanner teacherScanner = new Scanner(teacherFile);
 
         while (teacherScanner.hasNextLine()) {
